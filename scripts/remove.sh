@@ -1,3 +1,4 @@
 #!/bin/bash
 
-rm -rf /opt/phantomjs
+[ -d '/opt/phantomjs' ] && rm -rf /opt/phantomjs
+[ -L /usr/bin/phantomjs ] && rm /usr/bin/phantomjs

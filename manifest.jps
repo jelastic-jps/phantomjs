@@ -1,0 +1,70 @@
+{
+  "application": {
+	"categories": [
+	  "apps/others",
+	  "apps/management-and-monitoring"
+	],
+	"description": "PhantomJS is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.",
+	"homepage": "http://phantomjs.org/",
+	"logo": "https://github.com/jelastic-jps/PhantomJS/raw/master/images/PhantomJS.png",
+	"targetNodes": {
+	 "nodeGroup": "cp"
+	},
+	"globals" : {
+	  "installScript" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/install.sh",
+	  "removeScript" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/remove.sh",
+	  "documentationLink" : "http://phantomjs.org/documentation/"
+	},
+	"name": "PhantomJS",
+	"onInstall": [
+	  {
+		"call": [
+		  "installPhantomJS"
+		]
+	  }
+	],
+	"onUninstall": {
+	  "call": "removePhantomJS"
+	},
+	"procedures": [
+	  {
+		"id": "installPhantomJS",
+		"onCall": [
+		  {
+			"execCmd": [
+			  {
+				"commands": [
+				  "curl -sSfL \"${globals.installScript}\" -o ${SERVER_SCRIPTS}/install.sh 2>&1",
+				  "/bin/bash ${SERVER_SCRIPTS}/install.sh"
+				],
+				"nodeGroup": "${targetNodes.nodeGroup}",
+				"user": "root"
+			  }
+			]
+		  }
+		]
+	  },
+	  {
+		"id": "removePhantomJS",
+		"onCall": [
+		  {
+			"execCmd": [
+			  {
+				"commands": [
+				  "curl -sSfL \"${globals.removeScript}\" -o ${SERVER_SCRIPTS}/remove.sh 2>&1",
+				  "/bin/bash ${SERVER_SCRIPTS}/remove.sh"
+				],
+				"nodeGroup": "${targetNodes.nodeGroup}",
+				"user": "root"
+			  }
+			]
+		  }
+		]
+	  }
+	],
+	"success": "Addon was successufully installed with default Jelastic configuration. If you desire to set custom behaviour for your environment - please please refer to <a href='${globals.documentationLink}' target='_blank'>ducumentation</a>",
+	"version": "2.1.1"
+  },
+  "jpsType": "update",
+  "jpsVersion": "0.8"
+}

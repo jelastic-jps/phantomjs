@@ -5,7 +5,7 @@
 	  "apps/management-and-monitoring"
 	],
 	"description": {
-      	  "text": "<span><b>PhantomJS</b> is a headless WebKit, scriptable with JavaScript API. Providing out-of-box support of multiple web standards, it is used for headless testing of web applications, automating web page interaction and network activity monitoring.</span><div>Supported stacks: All certified application servers and Docker containers.</div>",
+      	  "text": "<span><b>PhantomJS</b> is a headless scriptable WebKit with multiple web standards support. Operated through JavaScript API, it is used for headless application testing, automating web page interaction and monitoring network activity.</span><div>Supported stacks: All certified application servers and Docker containers.</div>",
       	  "short": "A headless scriptable WebKit to perform web application testing and automate page interaction with JavaScript API."
 	},
 	"homepage": "http://phantomjs.org/",

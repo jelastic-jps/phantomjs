@@ -4,7 +4,10 @@
 	  "apps/others",
 	  "apps/management-and-monitoring"
 	],
-	"description": "PhantomJS is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.",
+	"description": {
+      	  "text": "<span><b>PhantomJS</b> is a headless WebKit, scriptable with JavaScript API. Providing out-of-box support of multiple web standards, it is used for headless testing of web applications, automating web page interaction and network activity monitoring.</span><div>Supported stacks: All certified application servers and Docker containers.</div>",
+      	  "short": "A headless scriptable WebKit to perform web application testing and automate page interaction with JavaScript API."
+	},
 	"homepage": "http://phantomjs.org/",
 	"logo": "https://github.com/jelastic-jps/PhantomJS/raw/master/images/PhantomJS.png",
 	"targetNodes": {
@@ -62,7 +65,7 @@
 		]
 	  }
 	],
-	"success": "Addon was successufully installed with default Jelastic configuration. If you desire to set custom behaviour for your environment - please please refer to <a href='${globals.documentationLink}' target='_blank'>ducumentation</a>",
+	"success": "The add-on has been installed with default Jelastic settings. For the detailed guidance on applying your custom configurations to change the predefined PhantomJS behaviour, please refer to the <a href='${globals.documentationLink}' target='_blank'>official documentation</a>",
 	"version": "2.1.1"
   },
   "jpsType": "update",

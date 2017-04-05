@@ -1,28 +1,31 @@
 [![PhantomJS](images/PhantomJS-logo.png)](../../../phantomjs)
 
-# [PhantomJS](http://phantomjs.org) - Scriptable Headless WebKit
+# PhantomJS WebKit Add-On  
 
-PhantomJS ([phantomjs.org](http://phantomjs.org)) is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.
+[PhantomJS](http://phantomjs.org) is a headless web browser that uses WebKit layout engine and JavaScript API for automating web page interaction and running scripted tests. It provides fast integration and native support for multiple web standards, such as DOM handling, CSS selector, JSON, Canvas, SVG, etc.  
 
-## Use Cases
+**Key PhantomJS features:**
+- headless testing of web applications 
+- taking screenshots of web pages 
+- monitoring network requests and responses 
+- evaluating code
 
-- **Headless web testing**. Lightning-fast testing without the browser is now possible!
-- **Page automation**. [Access and manipulate](http://phantomjs.org/page-automation.html) web pages with the standard DOM API, or with usual libraries like jQuery.
-- **Screen capture**. Programmatically [capture web contents](http://phantomjs.org/screen-capture.html), including CSS, SVG and Canvas. Build server-side web graphics apps, from a screenshot service to a vector chart rasterizer.
-- **Network monitoring**. Automate performance analysis, track [page loading](http://phantomjs.org/network-monitoring.html) and export as standard HAR format.
+**Type of nodes this add-on can be applied to:** All supported [application servers](https://docs.jelastic.com/software-stacks-versions#app-servers), including [Docker containers](https://docs.jelastic.com/dockers-overview#get-docker) (in the latter case, the appropriate container should be placed within *App Servers* environment layer).
 
-## Questions?
+To know more about [Jelastic Add-ons](https://github.com/jelastic-jps/jpswiki/wiki/Jelastic-Addons) and their usage, read through the appropriate reference.
 
-- Explore the complete [documentation](http://phantomjs.org/documentation/).
-- Read tons of [user articles](http://phantomjs.org/buzz.html) on using PhantomJS.
-- Join the [mailing-list](http://groups.google.com/group/phantomjs) and discuss with other PhantomJS fans.
+## How to Integrate PhantomJS to Jelastic Environment
 
-## Deployment
+For the PhantomJS add-on appliance, copy link to the **_manifest.jps_** file above and [import](https://docs.jelastic.com/environment-import) it through your Jelastic dashboard at the required [platform](https://jelastic.cloud/).
 
-In order to get this solution instantly deployed, click the "Deploy" button, specify your email address within the widget, choose one of the [Jelastic Public Cloud providers](https://jelastic.cloud) and press Install.
+[![phantomjs-installation](images/phantomjs-installation.png)](../../../phantomjs)              
 
-[![Deploy](https://raw.githubusercontent.com/jelastic-jps/payara/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/phantomjs/master/manifest.jps)
+In the opened frame, specify the following parameters:
+- **Environment name** - target environment with an application the add-on should be integrated to
+- **Nodes** - your application server name (is fetched automatically upon selecting the environment)
+        
+Click **Install** to continue. 
 
-To deploy this package to Jelastic Private Cloud, import [this JPS manifest](../../raw/master/manifest.jps) within your dashboard ([detailed instruction](https://docs.jelastic.com/environment-export-import#import)).
+If your application server runs over multiple containers (i.e. being [scaled horizontally](https://docs.jelastic.com/multi-nodes)), the PhantomJS add-on will be integrated to all of them. Once the installation is finished, you can proceed with executing the appropriate JS scripts within your application server container(s) to launch the required testing, monitoring and automation activities for your project.  
 
-For more information on what Jelastic add-on is and how to apply it, follow the [Jelastic Add-ons](https://github.com/jelastic-jps/jpswiki/wiki/Jelastic-Addons) reference.
+For the detailed guidance on further PhantomJS usage, refer to the product [official documentation](http://phantomjs.org/documentation/).

@@ -18,7 +18,7 @@
 	  "removeScript" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/remove.sh",
 	  "documentationLink" : "http://phantomjs.org/documentation/"
 	},
-	"name": "PhantomJS",
+	"name": "PhantomJS Add-On",
 	"onInstall": [
 	  {
 		"call": [

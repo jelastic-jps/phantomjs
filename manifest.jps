@@ -35,8 +35,7 @@
             }]
         },
 	"onInstall": [{
-	    "call": "removePhantomJS",
-            "if (settings.version == \"PhantomJS 2.1.1\")": {
+		"if (settings.version == \"PhantomJS 2.1.1\")": {
                 "installPhantomJS": {
                     "script": "${globals.installScript211}"
                 }

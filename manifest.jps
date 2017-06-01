@@ -14,8 +14,8 @@
 	 "nodeGroup": "cp"
 	},
 	"globals" : {
-	  "installScript211" : "https://github.com/dmitrykhimich/phantomjs/raw/patch-1/scripts/install211.sh",
-	  "installScript198" : "https://github.com/dmitrykhimich/phantomjs/raw/patch-1/scripts/install198.sh",
+	  "installScript211" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/install211.sh",
+	  "installScript198" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/install198.sh",
 	  "removeScript" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/remove.sh",
 	  "documentationLink" : "http://phantomjs.org/documentation/"
 	},

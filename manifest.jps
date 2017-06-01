@@ -88,7 +88,7 @@
 		]
 	  }
 	],
-	"success": "${settings.version} add-on has been installed with default Jelastic settings. For the detailed guidance on applying your custom configurations to change the predefined PhantomJS behaviour, please refer to the <a href='${globals.documentationLink}' target='_blank'>official documentation</a>",
+	"success": "${settings.version} add-on has been installed with default Jelastic settings. For the detailed guidance on applying your custom configurations to change the predefined PhantomJS behaviour, please refer to the [official documentation](${globals.documentationLink})",
 	"version": "${settings.version}"
   },
   "jpsType": "update",

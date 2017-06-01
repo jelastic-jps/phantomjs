@@ -5,7 +5,7 @@
 	  "apps/management-and-monitoring"
 	],
 	"description": {
-      	  "text": "<span><b>PhantomJS</b> is a headless scriptable WebKit with multiple web standards support. Operated through JavaScript API, it is used for headless application testing, automating web page interaction and monitoring network activity.</span><div>Supported stacks: All certified application servers and Docker containers.</div>",
+      	  "text": "**PhantomJS** is a headless scriptable WebKit with multiple web standards support. Operated through JavaScript API, it is used for headless application testing, automating web page interaction and monitoring network activity.\n\nSupported stacks: All certified application servers and Docker containers.",
       	  "short": "A headless scriptable WebKit to perform web application testing and automate page interaction with JavaScript API."
 	},
 	"homepage": "http://phantomjs.org/",
@@ -14,18 +14,38 @@
 	 "nodeGroup": "cp"
 	},
 	"globals" : {
-	  "installScript" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/install.sh",
+	  "installScript211" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/install211.sh",
+	  "installScript198" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/install198.sh",
 	  "removeScript" : "https://github.com/jelastic-jps/PhantomJS/raw/master/scripts/remove.sh",
 	  "documentationLink" : "http://phantomjs.org/documentation/"
 	},
 	"name": "PhantomJS Add-On",
-	"onInstall": [
-	  {
-		"call": [
-		  "installPhantomJS"
-		]
-	  }
-	],
+	"settings": {
+            "fields": [{
+                "type": "list",
+                "name": "version",
+                "caption": "Choose version:",
+                "default": "PhantomJS 2.1.1",
+                "values": {
+                    "value1": "PhantomJS 2.1.1",
+                    "value2": "PhantomJS 1.9.8"
+                },
+                "hideLabel": false,
+                "editable": false
+            }]
+        },
+	"onInstall": [{
+		"if (settings.version == \"PhantomJS 2.1.1\")": {
+                "installPhantomJS": {
+                    "script": "${globals.installScript211}"
+                }
+            },
+            "if (settings.version == \"PhantomJS 1.9.8\")": {
+                "installPhantomJS": {
+                    "script": "${globals.installScript198}"
+                }
+            }
+        }],
 	"onUninstall": {
 	  "call": "removePhantomJS"
 	},
@@ -37,8 +57,9 @@
 			"execCmd": [
 			  {
 				"commands": [
-				  "curl -sSfL \"${globals.installScript}\" -o ${SERVER_SCRIPTS}/install.sh 2>&1",
-				  "/bin/bash ${SERVER_SCRIPTS}/install.sh"
+				  "curl -sSfL \"${this.script}\" -o ${SERVER_SCRIPTS}/install.sh 2>&1",
+				  "/bin/bash ${SERVER_SCRIPTS}/install.sh",
+				  "rm -f ${SERVER_SCRIPTS}/install.sh"
 				],
 				"nodeGroup": "${targetNodes.nodeGroup}",
 				"user": "root"
@@ -55,7 +76,8 @@
 			  {
 				"commands": [
 				  "curl -sSfL \"${globals.removeScript}\" -o ${SERVER_SCRIPTS}/remove.sh 2>&1",
-				  "/bin/bash ${SERVER_SCRIPTS}/remove.sh"
+				  "/bin/bash ${SERVER_SCRIPTS}/remove.sh",
+                        	  "rm -f ${SERVER_SCRIPTS}/remove.sh"
 				],
 				"nodeGroup": "${targetNodes.nodeGroup}",
 				"user": "root"
@@ -65,8 +87,8 @@
 		]
 	  }
 	],
-	"success": "The add-on has been installed with default Jelastic settings. For the detailed guidance on applying your custom configurations to change the predefined PhantomJS behaviour, please refer to the <a href='${globals.documentationLink}' target='_blank'>official documentation</a>",
-	"version": "2.1.1"
+	"success": "${settings.version} add-on has been installed with default Jelastic settings. For the detailed guidance on applying your custom configurations to change the predefined PhantomJS behaviour, please refer to the [official documentation](${globals.documentationLink})",
+	"version": "${settings.version}"
   },
   "jpsType": "update",
   "jpsVersion": "0.8"

@@ -1,9 +1,5 @@
 {
   "application": {
-	"categories": [
-	  "apps/others",
-	  "apps/management-and-monitoring"
-	],
 	"description": {
       	  "text": "**PhantomJS** is a headless scriptable WebKit with multiple web standards support. Operated through JavaScript API, it is used for headless application testing, automating web page interaction and monitoring network activity.\n\nSupported stacks: All certified application servers and Docker containers.",
       	  "short": "A headless scriptable WebKit to perform web application testing and automate page interaction with JavaScript API."

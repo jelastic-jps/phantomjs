@@ -27,8 +27,8 @@
                 "caption": "Choose version:",
                 "default": "PhantomJS 2.1.1",
                 "values": {
-                    "value1": "PhantomJS 2.1.1",
-                    "value2": "PhantomJS 1.9.8"
+                    "PhantomJS 2.1.1": "PhantomJS 2.1.1",
+                    "PhantomJS 1.9.8": "PhantomJS 1.9.8"
                 },
                 "hideLabel": false,
                 "editable": false
